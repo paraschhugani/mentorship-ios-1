@@ -1,7 +1,7 @@
 //
 //  ProfileAPI.swift
 //  Created on 22/07/20
-//  Created for AnitaB.org Mentorship-iOS 
+//  Created for AnitaB.org Mentorship-iOS
 //
 
 import Foundation
@@ -28,6 +28,8 @@ class ProfileAPI: ProfileService {
             .receive(on: RunLoop.main)
             .catch { _ in Just(ProfileViewModel().getProfile()) }
             .sink { profile in
+                //calling coredata to save profile
+                CoreUserProfile().NewUserCore(profile: profile)
                 ProfileViewModel().saveProfile(profile: profile)
                 completion(profile)
             }

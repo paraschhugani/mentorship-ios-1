@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		26456FF21393E3AB6B5DA003 /* Pods_mentorship_ios_mentorship_iosUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6C2E468318F39338BF1CD504 /* Pods_mentorship_ios_mentorship_iosUITests.framework */; };
 		2B0A6F785ABDD7721B8DB7D6 /* Pods_mentorship_iosTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7F1CB15A69AE397D647DD813 /* Pods_mentorship_iosTests.framework */; };
+		45FF44F825AF876F00661051 /* CoreUserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45FF44F725AF876F00661051 /* CoreUserProfile.swift */; };
 		530F44142482752500B1FD0B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530F44132482752500B1FD0B /* AppDelegate.swift */; };
 		530F44162482752500B1FD0B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 530F44152482752500B1FD0B /* SceneDelegate.swift */; };
 		530F44192482752500B1FD0B /* mentorship_ios.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 530F44172482752500B1FD0B /* mentorship_ios.xcdatamodeld */; };
@@ -130,6 +131,7 @@
 
 /* Begin PBXFileReference section */
 		02B5AA94E26793BDDEA92D24 /* Pods-mentorship iosTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mentorship iosTests.release.xcconfig"; path = "Target Support Files/Pods-mentorship iosTests/Pods-mentorship iosTests.release.xcconfig"; sourceTree = "<group>"; };
+		45FF44F725AF876F00661051 /* CoreUserProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreUserProfile.swift; sourceTree = "<group>"; };
 		4B7C6AD7AFF5534C376F1BAF /* Pods_mentorship_ios.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_mentorship_ios.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FF5654F84F759331EBDC783 /* Pods-mentorship ios-mentorship iosUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-mentorship ios-mentorship iosUITests.release.xcconfig"; path = "Target Support Files/Pods-mentorship ios-mentorship iosUITests/Pods-mentorship ios-mentorship iosUITests.release.xcconfig"; sourceTree = "<group>"; };
 		530F44102482752500B1FD0B /* mentorship ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "mentorship ios.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -299,6 +301,14 @@
 			path = Pods;
 			sourceTree = "<group>";
 		};
+		45FF44F625AF874A00661051 /* CoredataServices */ = {
+			isa = PBXGroup;
+			children = (
+				45FF44F725AF876F00661051 /* CoreUserProfile.swift */,
+			);
+			path = CoredataServices;
+			sourceTree = "<group>";
+		};
 		530F44072482752500B1FD0B = {
 			isa = PBXGroup;
 			children = (
@@ -324,6 +334,7 @@
 		530F44122482752500B1FD0B /* mentorship ios */ = {
 			isa = PBXGroup;
 			children = (
+				45FF44F625AF874A00661051 /* CoredataServices */,
 				53F0CC7024E341E800B46F19 /* mentorship ios.entitlements */,
 				532A652924ECF292000E4A6A /* Config */,
 				83AA531B249F85E7001D6B0B /* Utilities */,
@@ -368,7 +379,6 @@
 				53D4545324CD50F500083215 /* HomeTests.swift */,
 				53A6DDEF24BE52A100D5DFCE /* ProfileTests.swift */,
 				53A6DC8324CDAC7C00E4FE14 /* RelationTests.swift */,
-				53AC6DE624D2BF8700F7FDE3 /* TaskCommentsTests.swift */,
 				53A6DC8524CDC4EF00E4FE14 /* MembersTests.swift */,
 				53A6DC8724CDCBCA00E4FE14 /* SettingsTests.swift */,
 				534B69D924CB6DAE007646E6 /* MockURLProtocol.swift */,
@@ -993,6 +1003,7 @@
 				533704E1248D1B4900A314ED /* MembersListCell.swift in Sources */,
 				538CD07224ABE9B800F6A665 /* AddTask.swift in Sources */,
 				53C59E8E24E6B04900EA0DB4 /* SocialSignInButtons.swift in Sources */,
+				45FF44F825AF876F00661051 /* CoreUserProfile.swift in Sources */,
 				53F205DD249ADF9200DDE52E /* ProfileEditor.swift in Sources */,
 				534AC02D2486D5CB00A34A46 /* BigBoldButtonStyle.swift in Sources */,
 				53D127B1249C956A003B4756 /* ActivityWithText.swift in Sources */,

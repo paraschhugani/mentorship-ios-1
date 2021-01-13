@@ -5,6 +5,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct Home: View {
     var homeService: HomeService = HomeAPI()
@@ -13,9 +14,13 @@ struct Home: View {
     private var relationsData: UIHelper.HomeScreen.RelationsListData {
         return homeViewModel.relationsListData
     }
+    //suporting variables for coredata
+    let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+    @State var HomeUserName = [UserProfileData]()
+    @State var userFirstName: String = ""
     
-    var userFirstName: String {
-        
+    
+    var userFirst: String {
         //Return just the first name
         if let editFullName = self.homeViewModel.userName?.capitalized {
             let trimmedFullName = editFullName.trimmingCharacters(in: .whitespaces)
@@ -23,7 +28,6 @@ struct Home: View {
             return userNameAsArray[0]
         }
         return ""
-        
     }
       
     func useHomeService() {
@@ -32,7 +36,6 @@ struct Home: View {
             home.update(viewModel: self.homeViewModel)
             self.homeViewModel.isLoading = false
         }
-        
         // if first time load, load profile too and use isLoading state (used to express in UI).
         if self.homeViewModel.firstTimeLoad {
             // set isLoading to true (expressed in UI)
@@ -43,7 +46,25 @@ struct Home: View {
                 profile.update(viewModel: self.homeViewModel)
                 // set first time load to false
                 self.homeViewModel.firstTimeLoad = false
+                //loading data from coredata ,
+                self.loadCoredata()
             }
+
+        }
+    }
+    
+    func loadCoredata(){
+        NSLog("loadCoredata called")
+        
+        let request : NSFetchRequest<UserProfileData> = UserProfileData.fetchRequest()
+        do{
+            try HomeUserName = context.fetch(request)
+            NSLog("here we have new username ///// --------------- ///// \(HomeUserName)")
+            if (HomeUserName.count != 0){
+                userFirstName = HomeUserName[HomeUserName.count - 1].username!
+            }
+        }catch{
+            NSLog("getting an error in loading data from core \(error)")
         }
     }
     
@@ -101,3 +122,4 @@ struct Home_Previews: PreviewProvider {
         Home()
     }
 }
+
