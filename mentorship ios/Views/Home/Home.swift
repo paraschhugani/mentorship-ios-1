@@ -17,10 +17,10 @@ struct Home: View {
     //suporting variables for coredata
     let context = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
     @State var HomeUserName = [UserProfileData]()
-    @State var userFirstName: String = ""
+    @State var CoredataUserName: String = ""
     
     
-    var userFirst: String {
+    var userFirstName: String {
         //Return just the first name
         if let editFullName = self.homeViewModel.userName?.capitalized {
             let trimmedFullName = editFullName.trimmingCharacters(in: .whitespaces)
@@ -59,9 +59,9 @@ struct Home: View {
         let request : NSFetchRequest<UserProfileData> = UserProfileData.fetchRequest()
         do{
             try HomeUserName = context.fetch(request)
-            NSLog("here we have new username ///// --------------- ///// \(HomeUserName)")
+            NSLog("here we have userdata ///// --------------- ///// \(HomeUserName)")
             if (HomeUserName.count != 0){
-                userFirstName = HomeUserName[HomeUserName.count - 1].username!
+                CoredataUserName = HomeUserName[HomeUserName.count - 1].username!
             }
         }catch{
             NSLog("getting an error in loading data from core \(error)")
@@ -103,7 +103,7 @@ struct Home: View {
 
             }
             .environment(\.horizontalSizeClass, .regular)
-            .navigationBarTitle("Welcome \(userFirstName)!")
+            .navigationBarTitle("Welcome \(CoredataUserName)!")
             .navigationBarItems(trailing:
                 NavigationLink(destination: ProfileSummary()) {
                         Image(systemName: ImageNameConstants.SFSymbolConstants.profileIcon)
